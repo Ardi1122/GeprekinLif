@@ -28,7 +28,13 @@ class MenuController extends Controller
             }
         }
 
-        return view('beranda', compact('menus', 'carts', 'stockData'));
+        return view('menu', compact('menus', 'carts', 'stockData'));
+    }
+
+     public function indexBeranda()
+    {
+        $menus = Menu::all();
+        return view('beranda', ['menus' => $menus]);
     }
 
     // Membuat filter dari menu secara real time

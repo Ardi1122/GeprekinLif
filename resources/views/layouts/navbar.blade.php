@@ -24,24 +24,22 @@
                             @if (Auth::user()->role == 'admin')
                                 <a class="nav-link" aria-current="page" href="/admin">Dahboard</a>
                             @endif
-
                         @endauth
                     @endif
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" aria-current="page" href="/">Beranda</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/menu">Menu</a>
+                </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">Menu</a>
+                        data-bs-toggle="dropdown" aria-expanded="false">Tentang</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#!">Semua</a></li>
-                        <li><a class="dropdown-item" href="#!">Ayam Geprek</a></li>
-                        <li><a class="dropdown-item" href="#!">Minuman</a></li>
+                        <li><a class="dropdown-item" href="#!">Sejarah</a></li>
+                        <li><a class="dropdown-item" href="#!">Penjelasan</a></li>
                     </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#!">Tentang</a>
                 </li>
             </ul>
             <div class="d-flex align-items-center gap-3">

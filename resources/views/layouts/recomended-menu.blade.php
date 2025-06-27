@@ -10,7 +10,7 @@
 
         <div class="row justify-content-center">
             @foreach ($menus->take(4) as $menu)
-                <div class="col-6 col-md-4 col-lg-3 mb-4">
+                <div class="col-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-duration="1500">
                     <div class="card position-relative overflow-hidden h-100">
                         <img src="{{ asset('storage/' . $menu->image) }}" class="card-img-top img-menu-card" alt="{{ $menu->name }}">
                         <div class="card-overlay d-flex justify-content-center align-items-center">

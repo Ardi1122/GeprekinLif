@@ -97,10 +97,10 @@
 .card-text {
     font-size: 0.75rem;
 }
-.card-body {
+.card-body-beranda {
     transition: .4s all ease;
 }
-.card-body:hover {
+.card-body-beranda:hover {
     scale: 1.05;
     cursor: pointer;
     transform: translateY(-5px);
@@ -196,4 +196,9 @@
     opacity: 1;
 }
 
+
+.category-btn.active {
+    background-color: #212529;
+    color: white;
+}
 

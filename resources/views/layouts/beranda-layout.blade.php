@@ -20,7 +20,9 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="{{ asset('landing-page/css/styles.css') }}" rel="stylesheet" />
     <link href="{{ asset('landing-page/css/beranda.css') }}" rel="stylesheet" />
-    {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
+    <!-- AOS Animation CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -28,19 +30,26 @@
     @include('layouts.navbar')
     <!-- Header-->
     @if (!request()->routeIs('profile.edit') && !request()->routeIs('cart.index'))
-        @include('layouts.banner')
     @endif
 
     <!-- Section-->
     @yield('content')
+
     <!-- Footer-->
-    @include('layouts.footer')
+    @include('components.footer')
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script> --}}
     <!-- Core theme JS-->
     <script src="{{ asset('landing-page/js/scripts.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <!-- AOS Animation JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // durasi animasi
+            once: false, // biar animasi bisa muncul terus kalau scroll balik
+        });
+    </script>
 
 </body>
 

@@ -54,7 +54,6 @@ class CartController extends Controller
         $cart->delete();
 
         return redirect()->route('admin.order.index')->with('success', 'Pesanan dikonfirmasi dan stok dikurangi.');
-
     }
 
     // Memasukkan keranjang pengguna ke database
@@ -84,5 +83,34 @@ class CartController extends Controller
         );
 
         return back()->with('success', 'Berhasil ditambahkan ke keranjang');
+    }
+
+    // Update jumlah item
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'quantity' => 'required|integer|min:1'
+        ]);
+
+        $cart = Cart::findOrFail($id);
+        $menu = $cart->menu;
+
+        if ($request->quantity > $menu->stock) {
+            return back()->with('error', 'Jumlah melebihi stok!');
+        }
+
+        $cart->quantity = $request->quantity;
+        $cart->save();
+
+        return back()->with('success', 'Jumlah berhasil diperbarui.');
+    }
+
+    // Hapus item dari cart
+    public function destroy($id)
+    {
+        $cart = Cart::findOrFail($id);
+        $cart->delete();
+
+        return back()->with('success', 'Item berhasil dihapus.');
     }
 }
